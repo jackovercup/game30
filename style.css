@@ -1,0 +1,215 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: sans-serif;
+  background: #f5f5f5;
+  color: #222;
+}
+
+.container {
+  width: min(900px, 90%);
+  margin: 40px auto;
+  padding: 30px;
+  background: white;
+  border-radius: 12px;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+h1 {
+  margin-bottom: 8px;
+}
+
+/* --------------------
+   入力画面
+-------------------- */
+
+.question-item {
+  padding: 20px;
+  margin-bottom: 16px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+}
+
+.question-item h2 {
+  margin-top: 0;
+  font-size: 18px;
+}
+
+.game-title-input {
+  width: 100%;
+  padding: 12px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+/* 画像アップロード */
+
+.image-upload-area {
+  margin-top: 16px;
+}
+
+.image-upload-label {
+  display: inline-block;
+  padding: 10px 16px;
+  background: #666;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.image-input {
+  display: none;
+}
+
+.image-preview-container {
+  margin-top: 12px;
+}
+
+.image-preview {
+  display: block;
+  width: 150px;
+  height: 150px;
+  object-fit: contain;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  background: #f5f5f5;
+}
+
+/* --------------------
+   ボタン・保存状態
+-------------------- */
+
+#save-status {
+  min-height: 24px;
+  text-align: center;
+  color: #666;
+  font-size: 14px;
+}
+
+.result-button,
+.edit-button {
+  display: block;
+  margin: 20px auto 0;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 6px;
+  background: #333;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.download-button {
+  display: block;
+  margin: 20px auto 10px;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 6px;
+  background: #333;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.download-button:hover {
+  opacity: 0.8;
+}
+
+/* --------------------
+   結果画面
+-------------------- */
+
+#result-screen {
+  text-align: center;
+}
+
+.result-description {
+  color: #666;
+  margin-bottom: 30px;
+}
+
+.result-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  text-align: left;
+}
+
+.result-item {
+  padding: 16px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+}
+
+.result-image {
+  display: block;
+  width: 90px;
+  height: 90px;
+  object-fit: contain;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  margin: 0 auto 8px;
+  background: #f5f5f5;
+}
+
+/* 画像がない場合の代替表示 */
+
+.no-image {
+  display: flex;
+  width: 90px;
+  height: 90px;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  margin: 0 auto 8px;
+  background: #eee;
+  color: #777;
+  font-size: 11px;
+  font-weight: bold;
+}
+
+.result-number {
+  margin: 0 0 8px;
+  color: #666;
+  font-size: 14px;
+}
+
+.result-question {
+  margin: 0 0 8px;
+  font-size: 14px;
+  color: #555;
+}
+
+.result-answer {
+  margin: 0;
+  font-size: 18px;
+  font-weight: bold;
+  word-break: break-word;
+}
+
+.hidden {
+  display: none;
+}
+
+/* スマホでは1列表示 */
+@media (max-width: 600px) {
+  .container {
+    width: 95%;
+    margin: 20px auto;
+    padding: 20px;
+  }
+
+  .result-grid {
+    grid-template-columns: 1fr;
+  }
+}
