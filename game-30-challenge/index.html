@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>GAME 30 CHALLENGE</title>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <main class="container">
+
+    <header>
+      <h1>🎮 GAME 30 CHALLENGE</h1>
+      <p>あなたのゲーム人生を振り返ろう</p>
+    </header>
+
+    <!-- 入力画面 -->
+    <section id="challenge-screen">
+      <div id="question-list"></div>
+
+      <p id="save-status"></p>
+
+      <button id="result-button" class="result-button">
+        結果を確認する
+      </button>
+    </section>
+
+    <!-- 結果画面 -->
+    <section id="result-screen" class="hidden">
+
+      <h2>🎮 MY GAME CHALLENGE</h2>
+      <p class="result-description">
+        あなたが選んだゲーム
+      </p>
+
+      <div id="result-list" class="result-grid"></div>
+
+      <button id="download-button" class="download-button">
+        📷 画像として保存
+      </button>
+
+      <button id="edit-button" class="edit-button">
+        ← 編集に戻る
+      </button>
+
+    </section>
+
+  </main>
+
+  <!-- JavaScriptライブラリ -->
+  <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+
+  <!-- 自分のJavaScript -->
+  <script src="app.js"></script>
+
+</body>
+</html>
