@@ -214,4 +214,16 @@ h1 {
   padding: 0 8px;
   box-sizing: border-box;
   }
+
+  .result-question {
+  font-size: 10px;
+}
+
+.result-answer {
+  font-size: 13px;
+}
+
+.result-item {
+  padding: 5px;
+}
 }
