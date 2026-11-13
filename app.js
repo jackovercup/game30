@@ -637,17 +637,30 @@ downloadButton.addEventListener(
       editButton.style.display =
         "";
 
-      // PNGとしてダウンロード
-      const link =
-        document.createElement("a");
+      // PNGとして保存
+canvas.toBlob(
+  (blob) => {
+    if (!blob) {
+      alert(
+        "画像の作成に失敗しました。"
+      );
+      return;
+    }
 
-      link.download =
-        "my-game-30-challenge.png";
+    const url =
+      URL.createObjectURL(blob);
 
-      link.href =
-        canvas.toDataURL("image/png");
+    window.open(
+      url,
+      "_blank"
+    );
 
-      link.click();
+    setTimeout(() => {
+      URL.revokeObjectURL(url);
+    }, 60000);
+  },
+  "image/png"
+);
 
     } catch (error) {
       console.error(
