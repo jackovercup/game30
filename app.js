@@ -609,6 +609,18 @@ editButton.addEventListener(
 downloadButton.addEventListener(
   "click",
   async () => {
+    // ボタンを押した直後に新しいタブを開く
+    // iPhoneのポップアップブロック対策
+    const newWindow =
+      window.open("", "_blank");
+
+    if (!newWindow) {
+      alert(
+        "新しい画面を開けませんでした。ポップアップブロックを確認してください。"
+      );
+      return;
+    }
+
     try {
       // ダウンロード対象
       const target =
@@ -637,30 +649,28 @@ downloadButton.addEventListener(
       editButton.style.display =
         "";
 
-      // PNGとして保存
-canvas.toBlob(
-  (blob) => {
-    if (!blob) {
-      alert(
-        "画像の作成に失敗しました。"
+      // PNGデータを作成
+      canvas.toBlob(
+        (blob) => {
+          if (!blob) {
+            newWindow.close();
+
+            alert(
+              "画像の作成に失敗しました。"
+            );
+
+            return;
+          }
+
+          const url =
+            URL.createObjectURL(blob);
+
+          // 最初に開いた画面に画像を表示
+          newWindow.location.href =
+            url;
+        },
+        "image/png"
       );
-      return;
-    }
-
-    const url =
-      URL.createObjectURL(blob);
-
-    window.open(
-      url,
-      "_blank"
-    );
-
-    setTimeout(() => {
-      URL.revokeObjectURL(url);
-    }, 60000);
-  },
-  "image/png"
-);
 
     } catch (error) {
       console.error(
@@ -674,6 +684,8 @@ canvas.toBlob(
 
       editButton.style.display =
         "";
+
+      newWindow.close();
 
       alert(
         "画像の作成に失敗しました。"
